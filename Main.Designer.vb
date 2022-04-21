@@ -57,7 +57,6 @@ Partial Class Main
         Me.lblKillDate = New System.Windows.Forms.Label()
         Me.txtDiscPerLb = New System.Windows.Forms.TextBox()
         Me.lblDiscPerLb = New System.Windows.Forms.Label()
-        Me.txtScaleType = New System.Windows.Forms.TextBox()
         Me.lblScaleType = New System.Windows.Forms.Label()
         Me.txtProductCode = New System.Windows.Forms.TextBox()
         Me.lblProductCode = New System.Windows.Forms.Label()
@@ -85,6 +84,7 @@ Partial Class Main
         Me.rdoAddNew = New System.Windows.Forms.RadioButton()
         Me.rdoUpdate = New System.Windows.Forms.RadioButton()
         Me.btnAddNew = New System.Windows.Forms.Button()
+        Me.cmbScaleType = New System.Windows.Forms.ComboBox()
         Me.grbSearch.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -197,6 +197,7 @@ Partial Class Main
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.cmbScaleType)
         Me.GroupBox2.Controls.Add(Me.lblUUID)
         Me.GroupBox2.Controls.Add(Me.txtNormalWeight)
         Me.GroupBox2.Controls.Add(Me.lblNormalWeight)
@@ -222,7 +223,6 @@ Partial Class Main
         Me.GroupBox2.Controls.Add(Me.lblKillDate)
         Me.GroupBox2.Controls.Add(Me.txtDiscPerLb)
         Me.GroupBox2.Controls.Add(Me.lblDiscPerLb)
-        Me.GroupBox2.Controls.Add(Me.txtScaleType)
         Me.GroupBox2.Controls.Add(Me.lblScaleType)
         Me.GroupBox2.Controls.Add(Me.txtProductCode)
         Me.GroupBox2.Controls.Add(Me.lblProductCode)
@@ -249,7 +249,7 @@ Partial Class Main
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox2.Size = New System.Drawing.Size(856, 590)
+        Me.GroupBox2.Size = New System.Drawing.Size(791, 590)
         Me.GroupBox2.TabIndex = 5
         Me.GroupBox2.TabStop = False
         '
@@ -266,7 +266,7 @@ Partial Class Main
         'txtNormalWeight
         '
         Me.txtNormalWeight.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNormalWeight.Location = New System.Drawing.Point(592, 153)
+        Me.txtNormalWeight.Location = New System.Drawing.Point(552, 153)
         Me.txtNormalWeight.Margin = New System.Windows.Forms.Padding(4)
         Me.txtNormalWeight.Name = "txtNormalWeight"
         Me.txtNormalWeight.Size = New System.Drawing.Size(203, 27)
@@ -276,7 +276,7 @@ Partial Class Main
         '
         Me.lblNormalWeight.AutoSize = True
         Me.lblNormalWeight.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNormalWeight.Location = New System.Drawing.Point(472, 156)
+        Me.lblNormalWeight.Location = New System.Drawing.Point(439, 156)
         Me.lblNormalWeight.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblNormalWeight.Name = "lblNormalWeight"
         Me.lblNormalWeight.Size = New System.Drawing.Size(106, 19)
@@ -286,7 +286,7 @@ Partial Class Main
         'txtItemCountPerBox
         '
         Me.txtItemCountPerBox.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtItemCountPerBox.Location = New System.Drawing.Point(592, 343)
+        Me.txtItemCountPerBox.Location = New System.Drawing.Point(552, 343)
         Me.txtItemCountPerBox.Margin = New System.Windows.Forms.Padding(4)
         Me.txtItemCountPerBox.Name = "txtItemCountPerBox"
         Me.txtItemCountPerBox.Size = New System.Drawing.Size(203, 27)
@@ -296,7 +296,7 @@ Partial Class Main
         '
         Me.lblItemCountPerBox.AutoSize = True
         Me.lblItemCountPerBox.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblItemCountPerBox.Location = New System.Drawing.Point(445, 346)
+        Me.lblItemCountPerBox.Location = New System.Drawing.Point(412, 346)
         Me.lblItemCountPerBox.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblItemCountPerBox.Name = "lblItemCountPerBox"
         Me.lblItemCountPerBox.Size = New System.Drawing.Size(133, 19)
@@ -306,7 +306,7 @@ Partial Class Main
         'txtItemTareEach
         '
         Me.txtItemTareEach.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtItemTareEach.Location = New System.Drawing.Point(592, 305)
+        Me.txtItemTareEach.Location = New System.Drawing.Point(552, 305)
         Me.txtItemTareEach.Margin = New System.Windows.Forms.Padding(4)
         Me.txtItemTareEach.Name = "txtItemTareEach"
         Me.txtItemTareEach.Size = New System.Drawing.Size(203, 27)
@@ -316,7 +316,7 @@ Partial Class Main
         '
         Me.lblItemTareEach.AutoSize = True
         Me.lblItemTareEach.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblItemTareEach.Location = New System.Drawing.Point(473, 308)
+        Me.lblItemTareEach.Location = New System.Drawing.Point(440, 308)
         Me.lblItemTareEach.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblItemTareEach.Name = "lblItemTareEach"
         Me.lblItemTareEach.Size = New System.Drawing.Size(105, 19)
@@ -326,7 +326,7 @@ Partial Class Main
         'txtLot
         '
         Me.txtLot.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLot.Location = New System.Drawing.Point(186, 305)
+        Me.txtLot.Location = New System.Drawing.Point(175, 305)
         Me.txtLot.Margin = New System.Windows.Forms.Padding(4)
         Me.txtLot.Name = "txtLot"
         Me.txtLot.Size = New System.Drawing.Size(203, 27)
@@ -346,7 +346,7 @@ Partial Class Main
         'txtProductType
         '
         Me.txtProductType.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProductType.Location = New System.Drawing.Point(592, 194)
+        Me.txtProductType.Location = New System.Drawing.Point(552, 194)
         Me.txtProductType.Margin = New System.Windows.Forms.Padding(4)
         Me.txtProductType.Name = "txtProductType"
         Me.txtProductType.Size = New System.Drawing.Size(203, 27)
@@ -356,7 +356,7 @@ Partial Class Main
         '
         Me.lblProductType.AutoSize = True
         Me.lblProductType.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProductType.Location = New System.Drawing.Point(486, 194)
+        Me.lblProductType.Location = New System.Drawing.Point(453, 194)
         Me.lblProductType.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblProductType.Name = "lblProductType"
         Me.lblProductType.Size = New System.Drawing.Size(92, 19)
@@ -366,10 +366,10 @@ Partial Class Main
         'txtAlphaDesc
         '
         Me.txtAlphaDesc.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAlphaDesc.Location = New System.Drawing.Point(186, 495)
+        Me.txtAlphaDesc.Location = New System.Drawing.Point(176, 495)
         Me.txtAlphaDesc.Margin = New System.Windows.Forms.Padding(4)
         Me.txtAlphaDesc.Name = "txtAlphaDesc"
-        Me.txtAlphaDesc.Size = New System.Drawing.Size(609, 27)
+        Me.txtAlphaDesc.Size = New System.Drawing.Size(579, 27)
         Me.txtAlphaDesc.TabIndex = 60
         '
         'lblAlphaDesc
@@ -386,10 +386,10 @@ Partial Class Main
         'txtTestingDesc
         '
         Me.txtTestingDesc.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTestingDesc.Location = New System.Drawing.Point(186, 533)
+        Me.txtTestingDesc.Location = New System.Drawing.Point(176, 533)
         Me.txtTestingDesc.Margin = New System.Windows.Forms.Padding(4)
         Me.txtTestingDesc.Name = "txtTestingDesc"
-        Me.txtTestingDesc.Size = New System.Drawing.Size(609, 27)
+        Me.txtTestingDesc.Size = New System.Drawing.Size(579, 27)
         Me.txtTestingDesc.TabIndex = 58
         '
         'lblTestingDesc
@@ -406,10 +406,10 @@ Partial Class Main
         'txtLabel
         '
         Me.txtLabel.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLabel.Location = New System.Drawing.Point(186, 457)
+        Me.txtLabel.Location = New System.Drawing.Point(176, 457)
         Me.txtLabel.Margin = New System.Windows.Forms.Padding(4)
         Me.txtLabel.Name = "txtLabel"
-        Me.txtLabel.Size = New System.Drawing.Size(609, 27)
+        Me.txtLabel.Size = New System.Drawing.Size(579, 27)
         Me.txtLabel.TabIndex = 56
         '
         'lblLabel
@@ -426,7 +426,7 @@ Partial Class Main
         'txtPricePerLb
         '
         Me.txtPricePerLb.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPricePerLb.Location = New System.Drawing.Point(186, 381)
+        Me.txtPricePerLb.Location = New System.Drawing.Point(175, 381)
         Me.txtPricePerLb.Margin = New System.Windows.Forms.Padding(4)
         Me.txtPricePerLb.Name = "txtPricePerLb"
         Me.txtPricePerLb.Size = New System.Drawing.Size(203, 27)
@@ -446,7 +446,7 @@ Partial Class Main
         'txtSellByDate
         '
         Me.txtSellByDate.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSellByDate.Location = New System.Drawing.Point(186, 419)
+        Me.txtSellByDate.Location = New System.Drawing.Point(175, 419)
         Me.txtSellByDate.Margin = New System.Windows.Forms.Padding(4)
         Me.txtSellByDate.Name = "txtSellByDate"
         Me.txtSellByDate.Size = New System.Drawing.Size(203, 27)
@@ -466,7 +466,7 @@ Partial Class Main
         'txtKillDate
         '
         Me.txtKillDate.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtKillDate.Location = New System.Drawing.Point(592, 419)
+        Me.txtKillDate.Location = New System.Drawing.Point(552, 419)
         Me.txtKillDate.Margin = New System.Windows.Forms.Padding(4)
         Me.txtKillDate.Name = "txtKillDate"
         Me.txtKillDate.Size = New System.Drawing.Size(203, 27)
@@ -476,7 +476,7 @@ Partial Class Main
         '
         Me.lblKillDate.AutoSize = True
         Me.lblKillDate.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblKillDate.Location = New System.Drawing.Point(514, 422)
+        Me.lblKillDate.Location = New System.Drawing.Point(481, 422)
         Me.lblKillDate.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblKillDate.Name = "lblKillDate"
         Me.lblKillDate.Size = New System.Drawing.Size(64, 19)
@@ -486,7 +486,7 @@ Partial Class Main
         'txtDiscPerLb
         '
         Me.txtDiscPerLb.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDiscPerLb.Location = New System.Drawing.Point(592, 381)
+        Me.txtDiscPerLb.Location = New System.Drawing.Point(552, 381)
         Me.txtDiscPerLb.Margin = New System.Windows.Forms.Padding(4)
         Me.txtDiscPerLb.Name = "txtDiscPerLb"
         Me.txtDiscPerLb.Size = New System.Drawing.Size(203, 27)
@@ -496,22 +496,12 @@ Partial Class Main
         '
         Me.lblDiscPerLb.AutoSize = True
         Me.lblDiscPerLb.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDiscPerLb.Location = New System.Drawing.Point(497, 384)
+        Me.lblDiscPerLb.Location = New System.Drawing.Point(464, 384)
         Me.lblDiscPerLb.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblDiscPerLb.Name = "lblDiscPerLb"
         Me.lblDiscPerLb.Size = New System.Drawing.Size(81, 19)
         Me.lblDiscPerLb.TabIndex = 49
         Me.lblDiscPerLb.Text = "Disc Per Lb"
-        '
-        'txtScaleType
-        '
-        Me.txtScaleType.Enabled = False
-        Me.txtScaleType.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtScaleType.Location = New System.Drawing.Point(186, 39)
-        Me.txtScaleType.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtScaleType.Name = "txtScaleType"
-        Me.txtScaleType.Size = New System.Drawing.Size(203, 27)
-        Me.txtScaleType.TabIndex = 46
         '
         'lblScaleType
         '
@@ -528,7 +518,7 @@ Partial Class Main
         '
         Me.txtProductCode.Enabled = False
         Me.txtProductCode.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProductCode.Location = New System.Drawing.Point(592, 39)
+        Me.txtProductCode.Location = New System.Drawing.Point(552, 39)
         Me.txtProductCode.Margin = New System.Windows.Forms.Padding(4)
         Me.txtProductCode.Name = "txtProductCode"
         Me.txtProductCode.Size = New System.Drawing.Size(203, 27)
@@ -538,7 +528,7 @@ Partial Class Main
         '
         Me.lblProductCode.AutoSize = True
         Me.lblProductCode.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProductCode.Location = New System.Drawing.Point(483, 44)
+        Me.lblProductCode.Location = New System.Drawing.Point(450, 44)
         Me.lblProductCode.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblProductCode.Name = "lblProductCode"
         Me.lblProductCode.Size = New System.Drawing.Size(95, 19)
@@ -548,10 +538,10 @@ Partial Class Main
         'txtProductDesc
         '
         Me.txtProductDesc.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProductDesc.Location = New System.Drawing.Point(186, 77)
+        Me.txtProductDesc.Location = New System.Drawing.Point(176, 77)
         Me.txtProductDesc.Margin = New System.Windows.Forms.Padding(4)
         Me.txtProductDesc.Name = "txtProductDesc"
-        Me.txtProductDesc.Size = New System.Drawing.Size(609, 27)
+        Me.txtProductDesc.Size = New System.Drawing.Size(579, 27)
         Me.txtProductDesc.TabIndex = 42
         '
         'lblProductDesc
@@ -568,10 +558,10 @@ Partial Class Main
         'txtProductDesc2
         '
         Me.txtProductDesc2.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProductDesc2.Location = New System.Drawing.Point(186, 115)
+        Me.txtProductDesc2.Location = New System.Drawing.Point(176, 115)
         Me.txtProductDesc2.Margin = New System.Windows.Forms.Padding(4)
         Me.txtProductDesc2.Name = "txtProductDesc2"
-        Me.txtProductDesc2.Size = New System.Drawing.Size(609, 27)
+        Me.txtProductDesc2.Size = New System.Drawing.Size(579, 27)
         Me.txtProductDesc2.TabIndex = 40
         '
         'lblProductDesc2
@@ -588,7 +578,7 @@ Partial Class Main
         'txtSetWeight
         '
         Me.txtSetWeight.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSetWeight.Location = New System.Drawing.Point(186, 153)
+        Me.txtSetWeight.Location = New System.Drawing.Point(175, 153)
         Me.txtSetWeight.Margin = New System.Windows.Forms.Padding(4)
         Me.txtSetWeight.Name = "txtSetWeight"
         Me.txtSetWeight.Size = New System.Drawing.Size(203, 27)
@@ -608,7 +598,7 @@ Partial Class Main
         'txtProductGrade
         '
         Me.txtProductGrade.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProductGrade.Location = New System.Drawing.Point(186, 191)
+        Me.txtProductGrade.Location = New System.Drawing.Point(175, 191)
         Me.txtProductGrade.Margin = New System.Windows.Forms.Padding(4)
         Me.txtProductGrade.Name = "txtProductGrade"
         Me.txtProductGrade.Size = New System.Drawing.Size(203, 27)
@@ -628,7 +618,7 @@ Partial Class Main
         'txtProductTare
         '
         Me.txtProductTare.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProductTare.Location = New System.Drawing.Point(186, 229)
+        Me.txtProductTare.Location = New System.Drawing.Point(175, 229)
         Me.txtProductTare.Margin = New System.Windows.Forms.Padding(4)
         Me.txtProductTare.Name = "txtProductTare"
         Me.txtProductTare.Size = New System.Drawing.Size(203, 27)
@@ -648,7 +638,7 @@ Partial Class Main
         'txtProductTare2
         '
         Me.txtProductTare2.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProductTare2.Location = New System.Drawing.Point(592, 229)
+        Me.txtProductTare2.Location = New System.Drawing.Point(552, 229)
         Me.txtProductTare2.Margin = New System.Windows.Forms.Padding(4)
         Me.txtProductTare2.Name = "txtProductTare2"
         Me.txtProductTare2.Size = New System.Drawing.Size(203, 27)
@@ -658,7 +648,7 @@ Partial Class Main
         '
         Me.lblProductTare2.AutoSize = True
         Me.lblProductTare2.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProductTare2.Location = New System.Drawing.Point(476, 232)
+        Me.lblProductTare2.Location = New System.Drawing.Point(443, 232)
         Me.lblProductTare2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblProductTare2.Name = "lblProductTare2"
         Me.lblProductTare2.Size = New System.Drawing.Size(102, 19)
@@ -668,7 +658,7 @@ Partial Class Main
         'txtKickoutCount
         '
         Me.txtKickoutCount.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtKickoutCount.Location = New System.Drawing.Point(186, 343)
+        Me.txtKickoutCount.Location = New System.Drawing.Point(175, 343)
         Me.txtKickoutCount.Margin = New System.Windows.Forms.Padding(4)
         Me.txtKickoutCount.Name = "txtKickoutCount"
         Me.txtKickoutCount.Size = New System.Drawing.Size(203, 27)
@@ -688,7 +678,7 @@ Partial Class Main
         'txtMinWeight
         '
         Me.txtMinWeight.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMinWeight.Location = New System.Drawing.Point(186, 267)
+        Me.txtMinWeight.Location = New System.Drawing.Point(175, 267)
         Me.txtMinWeight.Margin = New System.Windows.Forms.Padding(4)
         Me.txtMinWeight.Name = "txtMinWeight"
         Me.txtMinWeight.Size = New System.Drawing.Size(203, 27)
@@ -708,7 +698,7 @@ Partial Class Main
         'txtMaxWeight
         '
         Me.txtMaxWeight.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMaxWeight.Location = New System.Drawing.Point(592, 267)
+        Me.txtMaxWeight.Location = New System.Drawing.Point(552, 267)
         Me.txtMaxWeight.Margin = New System.Windows.Forms.Padding(4)
         Me.txtMaxWeight.Name = "txtMaxWeight"
         Me.txtMaxWeight.Size = New System.Drawing.Size(203, 27)
@@ -718,7 +708,7 @@ Partial Class Main
         '
         Me.lblMaxWeight.AutoSize = True
         Me.lblMaxWeight.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMaxWeight.Location = New System.Drawing.Point(491, 270)
+        Me.lblMaxWeight.Location = New System.Drawing.Point(458, 270)
         Me.lblMaxWeight.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblMaxWeight.Name = "lblMaxWeight"
         Me.lblMaxWeight.Size = New System.Drawing.Size(87, 19)
@@ -728,7 +718,7 @@ Partial Class Main
         'btnSave
         '
         Me.btnSave.Font = New System.Drawing.Font("Calibri", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(828, 28)
+        Me.btnSave.Location = New System.Drawing.Point(780, 30)
         Me.btnSave.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(204, 53)
@@ -739,7 +729,7 @@ Partial Class Main
         'btnExit
         '
         Me.btnExit.Font = New System.Drawing.Font("Calibri", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExit.Location = New System.Drawing.Point(1085, 28)
+        Me.btnExit.Location = New System.Drawing.Point(1037, 30)
         Me.btnExit.Margin = New System.Windows.Forms.Padding(4)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(180, 53)
@@ -784,7 +774,7 @@ Partial Class Main
         'btnAddNew
         '
         Me.btnAddNew.Font = New System.Drawing.Font("Calibri", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddNew.Location = New System.Drawing.Point(575, 28)
+        Me.btnAddNew.Location = New System.Drawing.Point(527, 30)
         Me.btnAddNew.Margin = New System.Windows.Forms.Padding(4)
         Me.btnAddNew.Name = "btnAddNew"
         Me.btnAddNew.Size = New System.Drawing.Size(204, 53)
@@ -792,11 +782,22 @@ Partial Class Main
         Me.btnAddNew.Text = "Add New"
         Me.btnAddNew.UseVisualStyleBackColor = True
         '
+        'cmbScaleType
+        '
+        Me.cmbScaleType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbScaleType.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbScaleType.FormattingEnabled = True
+        Me.cmbScaleType.Location = New System.Drawing.Point(175, 42)
+        Me.cmbScaleType.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmbScaleType.Name = "cmbScaleType"
+        Me.cmbScaleType.Size = New System.Drawing.Size(203, 27)
+        Me.cmbScaleType.TabIndex = 72
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1353, 710)
+        Me.ClientSize = New System.Drawing.Size(1296, 710)
         Me.Controls.Add(Me.btnAddNew)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -848,7 +849,6 @@ Partial Class Main
     Friend WithEvents lblKillDate As Label
     Friend WithEvents txtDiscPerLb As TextBox
     Friend WithEvents lblDiscPerLb As Label
-    Friend WithEvents txtScaleType As TextBox
     Friend WithEvents lblScaleType As Label
     Friend WithEvents txtProductCode As TextBox
     Friend WithEvents lblProductCode As Label
@@ -881,4 +881,5 @@ Partial Class Main
     Friend WithEvents rdoAddNew As RadioButton
     Friend WithEvents rdoUpdate As RadioButton
     Friend WithEvents btnAddNew As Button
+    Friend WithEvents cmbScaleType As ComboBox
 End Class

@@ -20,6 +20,7 @@ Public Class Main
         If rdr.HasRows Then
             While rdr.Read()
                 cmbScaleOptions.Items.Add(rdr("ScaleType"))
+                cmbScaleType.Items.Add(rdr("ScaleType"))
             End While
         End If
         cmd.Dispose()
@@ -104,7 +105,7 @@ Public Class Main
         If rdr.HasRows Then
             While rdr.Read
                 lblUUID.Text = rdr("UUID").ToString 'just to hold a place for identifier
-                txtScaleType.Text = FixNull(rdr("ScaleType"))
+                cmbScaleType.Text = FixNull(rdr("ScaleType"))
                 txtProductCode.Text = FixNull(rdr("ProductCode"))
                 txtProductDesc.Text = FixNull(rdr("ProductDesc"))
                 txtProductDesc2.Text = FixNull(rdr("ProductDesc2"))
@@ -175,7 +176,7 @@ Public Class Main
 
             If bUpdate Then cmd.Parameters.AddWithValue("@UUID", lblUUID.Text)
 
-            cmd.Parameters.AddWithValue("@ScaleType", txtScaleType.Text)
+            cmd.Parameters.AddWithValue("@ScaleType", cmbScaleType.Text)
             cmd.Parameters.AddWithValue("@ProductCode", txtProductCode.Text)
             cmd.Parameters.AddWithValue("@ProductType", txtProductType.Text)
             cmd.Parameters.AddWithValue("@ProductDesc", FixNullString(txtProductDesc.Text))
@@ -202,6 +203,12 @@ Public Class Main
 
             cmd.ExecuteNonQuery()
 
+            If bUpdate Then
+                MsgBox("Product has been updated", vbOKOnly)
+            Else
+                MsgBox("Product has been added", vbOKOnly)
+            End If
+
         Catch ex As Exception
             'WriteToErrorLog(ex.Message, ex.StackTrace, "Error")
         End Try
@@ -216,7 +223,7 @@ Public Class Main
         oConn = ConnectSQL(AppSettings("ConnectionString"))
 
         Dim cmd As New SqlCommand
-        cmd = New SqlClient.SqlCommand("SELECT * FROM ProductInfo WHERE ScaleType = '" & txtScaleType.Text & "' AND ProductCode = '" & txtProductCode.Text & "'", oConn)
+        cmd = New SqlClient.SqlCommand("SELECT * FROM ProductInfo WHERE ScaleType = '" & cmbScaleType.Text & "' AND ProductCode = '" & txtProductCode.Text & "'", oConn)
         Dim rdr As SqlClient.SqlDataReader
         rdr = cmd.ExecuteReader
 
@@ -237,7 +244,7 @@ Public Class Main
         Else
             rdoUpdate.Checked = True
             grbSearch.Enabled = True
-            txtScaleType.Enabled = False
+            cmbScaleType.Enabled = False
             txtProductCode.Enabled = False
             btnSave.Text = "Update"
         End If
@@ -251,7 +258,7 @@ Public Class Main
             rdoAddNew.Checked = True
             btnAddNew.Enabled = True
             grbSearch.Enabled = False
-            txtScaleType.Enabled = True
+            cmbScaleType.Enabled = True
             txtProductCode.Enabled = True
             btnSave.Text = "Save"
             ClearAllFields()
@@ -264,7 +271,7 @@ Public Class Main
     End Sub
     Private Sub ClearAllFields()
         lblUUID.Text = ""
-        txtScaleType.Text = ""
+        cmbScaleType.SelectedIndex = 0
         txtProductCode.Text = ""
         txtProductDesc.Text = ""
         txtProductDesc2.Text = ""
