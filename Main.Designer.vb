@@ -32,6 +32,7 @@ Partial Class Main
         Me.cmbScaleOptions = New System.Windows.Forms.ComboBox()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.cmbScaleType = New System.Windows.Forms.ComboBox()
         Me.lblUUID = New System.Windows.Forms.Label()
         Me.txtNormalWeight = New System.Windows.Forms.TextBox()
         Me.lblNormalWeight = New System.Windows.Forms.Label()
@@ -84,7 +85,6 @@ Partial Class Main
         Me.rdoAddNew = New System.Windows.Forms.RadioButton()
         Me.rdoUpdate = New System.Windows.Forms.RadioButton()
         Me.btnAddNew = New System.Windows.Forms.Button()
-        Me.cmbScaleType = New System.Windows.Forms.ComboBox()
         Me.grbSearch.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -252,6 +252,17 @@ Partial Class Main
         Me.GroupBox2.Size = New System.Drawing.Size(791, 590)
         Me.GroupBox2.TabIndex = 5
         Me.GroupBox2.TabStop = False
+        '
+        'cmbScaleType
+        '
+        Me.cmbScaleType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbScaleType.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbScaleType.FormattingEnabled = True
+        Me.cmbScaleType.Location = New System.Drawing.Point(175, 42)
+        Me.cmbScaleType.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmbScaleType.Name = "cmbScaleType"
+        Me.cmbScaleType.Size = New System.Drawing.Size(203, 27)
+        Me.cmbScaleType.TabIndex = 72
         '
         'lblUUID
         '
@@ -459,9 +470,9 @@ Partial Class Main
         Me.lblSellByDate.Location = New System.Drawing.Point(81, 422)
         Me.lblSellByDate.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblSellByDate.Name = "lblSellByDate"
-        Me.lblSellByDate.Size = New System.Drawing.Size(87, 19)
+        Me.lblSellByDate.Size = New System.Drawing.Size(88, 19)
         Me.lblSellByDate.TabIndex = 53
-        Me.lblSellByDate.Text = "Sell By Date"
+        Me.lblSellByDate.Text = "Sell By Days"
         '
         'txtKillDate
         '
@@ -781,17 +792,6 @@ Partial Class Main
         Me.btnAddNew.TabIndex = 7
         Me.btnAddNew.Text = "Add New"
         Me.btnAddNew.UseVisualStyleBackColor = True
-        '
-        'cmbScaleType
-        '
-        Me.cmbScaleType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbScaleType.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbScaleType.FormattingEnabled = True
-        Me.cmbScaleType.Location = New System.Drawing.Point(175, 42)
-        Me.cmbScaleType.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmbScaleType.Name = "cmbScaleType"
-        Me.cmbScaleType.Size = New System.Drawing.Size(203, 27)
-        Me.cmbScaleType.TabIndex = 72
         '
         'Main
         '

@@ -124,7 +124,7 @@ Public Class Main
                 txtTestingDesc.Text = FixNull(rdr("TestingDesc"))
                 txtLabel.Text = FixNull(rdr("Label"))
                 txtPricePerLb.Text = FixNull(rdr("PricePerLb"))
-                txtSellByDate.Text = FixNullDate(rdr("SellByDate"))
+                txtSellByDate.Text = FixNull(rdr("SellByDay"))
                 txtKillDate.Text = FixNullDate(rdr("KillDate"))
                 txtDiscPerLb.Text = FixNull(rdr("DiscPerLb"))
                 txtNormalWeight.Text = FixNull(rdr("NormalWeight"))
@@ -158,13 +158,13 @@ Public Class Main
                     SET    ScaleType = @ScaleType, ProductCode = @ProductCode, ProductDesc = @ProductDesc, ProductDesc2 = @ProductDesc2, SetWeight = @SetWeight, ProductGrade = @ProductGrade, 
                            ProductTare = @ProductTare, ProductTare2 = ProductTare2, KickoutCount = @KickoutCount, MinWeight = @MinWeight, MaxWeight = @MaxWeight, ItemCountPerBox = @ItemCountPerBox, 
                            ItemTareEach = @ItemTareEach, Lot = @Lot, ProductType = @ProductType, AlphaDesc = @AlphaDesc, TestingDesc = @TestingDesc, Label = @Label, PricePerLb = @PricePerLb, 
-                           SellByDate = @SellByDate, KillDate = @KillDate, DiscPerLb = @DiscPerLb, NormalWeight = @NormalWeight, DateEntered = @DateEntered
+                           SellByDay = @SellByDay, KillDate = @KillDate, DiscPerLb = @DiscPerLb, NormalWeight = @NormalWeight, DateEntered = @DateEntered
                     WHERE UUID = @UUID"
             Else
                 sSql = "INSERT INTO ProductInfo (ScaleType, ProductCode, ProductDesc, ProductDesc2, SetWeight, ProductGrade, ProductTare, ProductTare2, KickoutCount, MinWeight, MaxWeight, 
-                            ItemCountPerBox, ItemTareEach, Lot, ProductType, AlphaDesc, TestingDesc, Label, PricePerLb, SellByDate, KillDate, DiscPerLb, NormalWeight, DateEntered)
+                            ItemCountPerBox, ItemTareEach, Lot, ProductType, AlphaDesc, TestingDesc, Label, PricePerLb, SellByDay, KillDate, DiscPerLb, NormalWeight, DateEntered)
                         VALUES (@ScaleType, @ProductCode, @ProductDesc, @ProductDesc2, @SetWeight, @ProductGrade, @ProductTare, @ProductTare2, @KickoutCount, @MinWeight, @MaxWeight, 
-                            @ItemCountPerBox, @ItemTareEach, @Lot, @ProductType, @AlphaDesc, @TestingDesc, @Label, @PricePerLb, @SellByDate, @KillDate, @DiscPerLb, @NormalWeight, @DateEntered)"
+                            @ItemCountPerBox, @ItemTareEach, @Lot, @ProductType, @AlphaDesc, @TestingDesc, @Label, @PricePerLb, @SellByDay, @KillDate, @DiscPerLb, @NormalWeight, @DateEntered)"
             End If
 
 
@@ -195,7 +195,7 @@ Public Class Main
             cmd.Parameters.AddWithValue("@TestingDesc", FixNullString(txtTestingDesc.Text))
             cmd.Parameters.AddWithValue("@Label", FixNullString(txtLabel.Text))
             cmd.Parameters.AddWithValue("@PricePerLb", FixNullDecimal(txtPricePerLb.Text))
-            cmd.Parameters.AddWithValue("@SellByDate", IIf(CheckDate(txtSellByDate.Text) IsNot Nothing, CheckDate(txtSellByDate.Text), DBNull.Value))
+            cmd.Parameters.AddWithValue("@SellByDay", FixNullString(txtSellByDate.Text))
             cmd.Parameters.AddWithValue("@KillDate", IIf(CheckDate(txtKillDate.Text) IsNot Nothing, CheckDate(txtKillDate.Text), DBNull.Value))
             cmd.Parameters.AddWithValue("@DiscPerLb", FixNullDecimal(txtDiscPerLb.Text))
             cmd.Parameters.AddWithValue("@NormalWeight", FixNullDecimal(txtNormalWeight.Text))
