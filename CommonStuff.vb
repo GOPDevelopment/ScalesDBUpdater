@@ -1,10 +1,45 @@
 ﻿Imports System.Data.SqlTypes
 Imports System.IO
 Imports System.Runtime.InteropServices
-'Imports System.Security
-'Imports System.Security.Principal
 
 
+Public Class ProductInfo
+    Public Property UUID As Guid
+    Public Property ScaleType As String
+    Public Property ProductCode As String
+    Public Property ProductDescription As String
+    Public Property ProductDescription2 As String
+
+    Public Property SetWeight As String
+    Public Property NormalWeight As String
+
+    Public Property ProductGrade As String
+    Public Property Type As String
+
+
+    Public Property Tare As String
+    Public Property Tare2 As String
+
+    Public Property MinWeight As String
+    Public Property MaxWeight As String
+
+    Public Property Lot As String
+    Public Property ItemTareEach As String
+
+    Public Property KickoutCount As String
+    Public Property ItemCountPerBox As String
+
+    Public Property SellByDays As String
+    Public Property KillDate As String
+
+
+    Public Property LabelTemplate As String
+    Public Property AlphaDescription As String
+    Public Property TestingDescription As String
+    Public Property DateEntered As String
+
+
+End Class
 Module CommonStuff
     Function FixNull(ByVal szValue)
         If IsDBNull(szValue) Then
@@ -174,6 +209,25 @@ Module CommonStuff
             'do nothing, carry on
         End Try
     End Sub
+
+
+    '' Access the GetUserNameA function in advapi32.dll and
+    '' call the function GetUserName.
+    'Declare Function GetUserName Lib "advapi32.dll" Alias "GetUserNameA" (ByVal lpBuffer As String, nSize As Long) As Long
+
+    '' Main routine to Dimension variables, retrieve user name and display answer.
+    'Sub Get_User_Name()
+    '    Dim lpBuff As String
+    '    Dim ret As Long
+    '    Dim UserName As String
+
+    '    ' Get the user name minus any trailing spaces found in the name.
+    '    ret = GetUserName(lpBuff, 25)
+    '    UserName = Left(lpBuff, InStr(lpBuff, Chr(0)) - 1)
+
+    '    ' Display the User Name
+    '    MsgBox UserName
+    ' End Sub
 
 End Module
 

@@ -1,7 +1,11 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Configuration.ConfigurationManager
+Imports System.Security.Principal
 
 Public Class Main
+
+    Public currentSelection As ProductInfo
+
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'load search type items and set first to default
@@ -32,6 +36,7 @@ Public Class Main
 
         btnAddNew.Enabled = False
 
+        Dim userName As String = WindowsIdentity.GetCurrent().Name
 
 
     End Sub
@@ -123,11 +128,38 @@ Public Class Main
                 txtAlphaDesc.Text = FixNull(rdr("AlphaDesc"))
                 txtTestingDesc.Text = FixNull(rdr("TestingDesc"))
                 txtLabel.Text = FixNull(rdr("Label"))
-                txtPricePerLb.Text = FixNull(rdr("PricePerLb"))
+                'txtPricePerLb.Text = FixNull(rdr("PricePerLb"))
                 txtSellByDate.Text = FixNull(rdr("SellByDay"))
                 txtKillDate.Text = FixNullDate(rdr("KillDate"))
-                txtDiscPerLb.Text = FixNull(rdr("DiscPerLb"))
+                'txtDiscPerLb.Text = FixNull(rdr("DiscPerLb"))
                 txtNormalWeight.Text = FixNull(rdr("NormalWeight"))
+
+                'fill in current to compare to changes                        
+                currentSelection = New ProductInfo
+                currentSelection.UUID = rdr("UUID")
+                currentSelection.ScaleType = FixNull(rdr("ScaleType"))
+                currentSelection.ProductCode = FixNull(rdr("ProductCode"))
+                currentSelection.ProductDescription = FixNull(rdr("ProductDesc"))
+                currentSelection.ProductDescription2 = FixNull(rdr("ProductDesc2"))
+                currentSelection.SetWeight = FixNull(rdr("SetWeight"))
+                currentSelection.ProductGrade = FixNull(rdr("ProductGrade"))
+                currentSelection.Tare = FixNull(rdr("ProductTare"))
+                currentSelection.Tare2 = FixNull(rdr("ProductTare2"))
+                currentSelection.KickoutCount = FixNull(rdr("KickoutCount"))
+                currentSelection.MinWeight = FixNull(rdr("MinWeight"))
+                currentSelection.MaxWeight = FixNull(rdr("MaxWeight"))
+                currentSelection.ItemCountPerBox = FixNull(rdr("ItemCountPerBox"))
+                currentSelection.ItemTareEach = FixNull(rdr("ItemTareEach"))
+                currentSelection.Lot = FixNull(rdr("Lot"))
+                currentSelection.Type = FixNull(rdr("ProductType"))
+                currentSelection.AlphaDescription = FixNull(rdr("AlphaDesc"))
+                currentSelection.TestingDescription = FixNull(rdr("TestingDesc"))
+                currentSelection.LabelTemplate = FixNull(rdr("Label"))
+                currentSelection.SellByDays = FixNull(rdr("SellByDay"))
+                currentSelection.KillDate = FixNull(rdr("KillDate"))
+                currentSelection.NormalWeight = FixNull(rdr("NormalWeight"))
+                currentSelection.DateEntered = FixNull(rdr("DateEntered"))
+
             End While
 
         End If
@@ -157,14 +189,13 @@ Public Class Main
                 sSql = "UPDATE ProductInfo
                     SET    ScaleType = @ScaleType, ProductCode = @ProductCode, ProductDesc = @ProductDesc, ProductDesc2 = @ProductDesc2, SetWeight = @SetWeight, ProductGrade = @ProductGrade, 
                            ProductTare = @ProductTare, ProductTare2 = ProductTare2, KickoutCount = @KickoutCount, MinWeight = @MinWeight, MaxWeight = @MaxWeight, ItemCountPerBox = @ItemCountPerBox, 
-                           ItemTareEach = @ItemTareEach, Lot = @Lot, ProductType = @ProductType, AlphaDesc = @AlphaDesc, TestingDesc = @TestingDesc, Label = @Label, PricePerLb = @PricePerLb, 
-                           SellByDay = @SellByDay, KillDate = @KillDate, DiscPerLb = @DiscPerLb, NormalWeight = @NormalWeight, DateEntered = @DateEntered
+                           ItemTareEach = @ItemTareEach, Lot = @Lot, ProductType = @ProductType, AlphaDesc = @AlphaDesc, TestingDesc = @TestingDesc, Label = @Label, SellByDay = @SellByDay, KillDate = @KillDate, NormalWeight = @NormalWeight, DateEntered = @DateEntered
                     WHERE UUID = @UUID"
             Else
                 sSql = "INSERT INTO ProductInfo (ScaleType, ProductCode, ProductDesc, ProductDesc2, SetWeight, ProductGrade, ProductTare, ProductTare2, KickoutCount, MinWeight, MaxWeight, 
-                            ItemCountPerBox, ItemTareEach, Lot, ProductType, AlphaDesc, TestingDesc, Label, PricePerLb, SellByDay, KillDate, DiscPerLb, NormalWeight, DateEntered)
+                            ItemCountPerBox, ItemTareEach, Lot, ProductType, AlphaDesc, TestingDesc, Label, SellByDay, KillDate, NormalWeight, DateEntered)
                         VALUES (@ScaleType, @ProductCode, @ProductDesc, @ProductDesc2, @SetWeight, @ProductGrade, @ProductTare, @ProductTare2, @KickoutCount, @MinWeight, @MaxWeight, 
-                            @ItemCountPerBox, @ItemTareEach, @Lot, @ProductType, @AlphaDesc, @TestingDesc, @Label, @PricePerLb, @SellByDay, @KillDate, @DiscPerLb, @NormalWeight, @DateEntered)"
+                            @ItemCountPerBox, @ItemTareEach, @Lot, @ProductType, @AlphaDesc, @TestingDesc, @Label, @SellByDay, @KillDate, @NormalWeight, @DateEntered)"
             End If
 
 
@@ -194,14 +225,20 @@ Public Class Main
             cmd.Parameters.AddWithValue("@AlphaDesc", FixNullString(txtAlphaDesc.Text))
             cmd.Parameters.AddWithValue("@TestingDesc", FixNullString(txtTestingDesc.Text))
             cmd.Parameters.AddWithValue("@Label", FixNullString(txtLabel.Text))
-            cmd.Parameters.AddWithValue("@PricePerLb", FixNullDecimal(txtPricePerLb.Text))
+            'cmd.Parameters.AddWithValue("@PricePerLb", FixNullDecimal(txtPricePerLb.Text))
             cmd.Parameters.AddWithValue("@SellByDay", FixNullString(txtSellByDate.Text))
             cmd.Parameters.AddWithValue("@KillDate", IIf(CheckDate(txtKillDate.Text) IsNot Nothing, CheckDate(txtKillDate.Text), DBNull.Value))
-            cmd.Parameters.AddWithValue("@DiscPerLb", FixNullDecimal(txtDiscPerLb.Text))
+            'cmd.Parameters.AddWithValue("@DiscPerLb", FixNullDecimal(txtDiscPerLb.Text))
             cmd.Parameters.AddWithValue("@NormalWeight", FixNullDecimal(txtNormalWeight.Text))
             cmd.Parameters.AddWithValue("@DateEntered", Now.ToString("MM/dd/yyyy HH:mm"))
 
             cmd.ExecuteNonQuery()
+
+            oConn.Close()
+
+            'save updated/new info added by user
+            If bUpdate Then UpdateProductCodeChangeHistoryTable(bUpdate)
+
 
             If bUpdate Then
                 MsgBox("Product has been updated", vbOKOnly)
@@ -210,7 +247,7 @@ Public Class Main
             End If
 
         Catch ex As Exception
-            'WriteToErrorLog(ex.Message, ex.StackTrace, "Error")
+            WriteToErrorLog(ex.Message, ex.StackTrace, "Error")
         End Try
     End Sub
 
@@ -235,7 +272,6 @@ Public Class Main
 
         Return bReturn
     End Function
-
     Private Sub rdoUpdate_CheckedChanged(sender As Object, e As EventArgs) Handles rdoUpdate.CheckedChanged
         btnAddNew.Enabled = False
         If rdoAddNew.Checked Then
@@ -249,7 +285,6 @@ Public Class Main
             btnSave.Text = "Update"
         End If
     End Sub
-
     Private Sub rdoAddNew_CheckedChanged(sender As Object, e As EventArgs) Handles rdoAddNew.CheckedChanged
         btnAddNew.Enabled = True
         If rdoUpdate.Checked Then
@@ -264,10 +299,9 @@ Public Class Main
             ClearAllFields()
         End If
     End Sub
-
     Private Sub btnAddNew_Click(sender As Object, e As EventArgs) Handles btnAddNew.Click
         'clear boxes
-        ClearAllFields
+        ClearAllFields()
     End Sub
     Private Sub ClearAllFields()
         lblUUID.Text = ""
@@ -289,13 +323,70 @@ Public Class Main
         txtAlphaDesc.Text = ""
         txtTestingDesc.Text = ""
         txtLabel.Text = ""
-        txtPricePerLb.Text = ""
+        'txtPricePerLb.Text = ""
         txtSellByDate.Text = ""
         txtKillDate.Text = ""
-        txtDiscPerLb.Text = ""
+        'txtDiscPerLb.Text = ""
         txtNormalWeight.Text = ""
     End Sub
 
+    Private Sub UpdateProductCodeChangeHistoryTable(bUpdate As Boolean)
+        'Dim userName As String = WindowsIdentity.GetCurrent().Name
+        Try
+
+            Dim sSql As String
+            sSql = "INSERT INTO ProductInfoChangeHistory (UserName, UserChangeType, UserChangeDate, UUID, ScaleType, ProductCode, ProductDesc, ProductDesc2, SetWeight, ProductGrade, ProductTare, ProductTare2, KickoutCount, MinWeight, MaxWeight, 
+                            ItemCountPerBox, ItemTareEach, Lot, ProductType, AlphaDesc, TestingDesc, Label, SellByDay, KillDate, NormalWeight, DateEntered)
+                        VALUES (@UserName, @UserChangeType, @UserChangeDate, @UUID, @ScaleType, @ProductCode, @ProductDesc, @ProductDesc2, @SetWeight, @ProductGrade, @ProductTare, @ProductTare2, @KickoutCount, @MinWeight, @MaxWeight, 
+                            @ItemCountPerBox, @ItemTareEach, @Lot, @ProductType, @AlphaDesc, @TestingDesc, @Label, @SellByDay, @KillDate, @NormalWeight, @DateEntered)"
+
+
+            Dim oConn As New SqlConnection
+            oConn = ConnectSQL(AppSettings("ConnectionString"))
+
+            Dim cmd As New SqlCommand
+            cmd = New SqlClient.SqlCommand(sSql, oConn)
+
+
+            cmd.Parameters.AddWithValue("@UserName", WindowsIdentity.GetCurrent().Name)
+            cmd.Parameters.AddWithValue("@UserChangeType", IIf(bUpdate, "UPDATE", "NEW"))
+            cmd.Parameters.AddWithValue("@UserChangeDate", Now.ToString("MM/dd/yyyy HH:mm"))
+
+            cmd.Parameters.AddWithValue("@UUID", currentSelection.UUID)
+            cmd.Parameters.AddWithValue("@ScaleType", currentSelection.ScaleType)
+            cmd.Parameters.AddWithValue("@ProductCode", currentSelection.ProductCode)
+            cmd.Parameters.AddWithValue("@ProductType", currentSelection.Type)
+            cmd.Parameters.AddWithValue("@ProductDesc", currentSelection.ProductDescription)
+            cmd.Parameters.AddWithValue("@ProductDesc2", currentSelection.ProductDescription2)
+            cmd.Parameters.AddWithValue("@SetWeight", currentSelection.SetWeight)
+            cmd.Parameters.AddWithValue("@ProductGrade", currentSelection.ProductGrade)
+            cmd.Parameters.AddWithValue("@ProductTare", currentSelection.Tare)
+            cmd.Parameters.AddWithValue("@ProductTare2", currentSelection.Tare2)
+            cmd.Parameters.AddWithValue("@KickoutCount", currentSelection.KickoutCount)
+            cmd.Parameters.AddWithValue("@MinWeight", currentSelection.MinWeight)
+            cmd.Parameters.AddWithValue("@MaxWeight", currentSelection.MaxWeight)
+            cmd.Parameters.AddWithValue("@ItemCountPerBox", currentSelection.ItemCountPerBox)
+            cmd.Parameters.AddWithValue("@ItemTareEach", currentSelection.ItemTareEach)
+            cmd.Parameters.AddWithValue("@Lot", currentSelection.Lot)
+            cmd.Parameters.AddWithValue("@AlphaDesc", currentSelection.AlphaDescription)
+            cmd.Parameters.AddWithValue("@TestingDesc", currentSelection.TestingDescription)
+            cmd.Parameters.AddWithValue("@Label", currentSelection.LabelTemplate)
+            cmd.Parameters.AddWithValue("@SellByDay", currentSelection.SellByDays)
+            cmd.Parameters.AddWithValue("@KillDate", IIf(CheckDate(currentSelection.KillDate) IsNot Nothing, CheckDate(currentSelection.KillDate), DBNull.Value))
+            cmd.Parameters.AddWithValue("@NormalWeight", currentSelection.NormalWeight)
+            cmd.Parameters.AddWithValue("@DateEntered", currentSelection.DateEntered)
+
+            cmd.ExecuteNonQuery()
+
+            oConn.Close()
+
+
+        Catch ex As Exception
+            WriteToErrorLog(ex.Message, ex.StackTrace, "Error")
+        End Try
+
+
+    End Sub
 
 
 

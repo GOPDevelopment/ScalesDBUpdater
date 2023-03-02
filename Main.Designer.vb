@@ -50,14 +50,10 @@ Partial Class Main
         Me.lblTestingDesc = New System.Windows.Forms.Label()
         Me.txtLabel = New System.Windows.Forms.TextBox()
         Me.lblLabel = New System.Windows.Forms.Label()
-        Me.txtPricePerLb = New System.Windows.Forms.TextBox()
-        Me.lblPricePerLb = New System.Windows.Forms.Label()
         Me.txtSellByDate = New System.Windows.Forms.TextBox()
         Me.lblSellByDate = New System.Windows.Forms.Label()
         Me.txtKillDate = New System.Windows.Forms.TextBox()
         Me.lblKillDate = New System.Windows.Forms.Label()
-        Me.txtDiscPerLb = New System.Windows.Forms.TextBox()
-        Me.lblDiscPerLb = New System.Windows.Forms.Label()
         Me.lblScaleType = New System.Windows.Forms.Label()
         Me.txtProductCode = New System.Windows.Forms.TextBox()
         Me.lblProductCode = New System.Windows.Forms.Label()
@@ -215,14 +211,10 @@ Partial Class Main
         Me.GroupBox2.Controls.Add(Me.lblTestingDesc)
         Me.GroupBox2.Controls.Add(Me.txtLabel)
         Me.GroupBox2.Controls.Add(Me.lblLabel)
-        Me.GroupBox2.Controls.Add(Me.txtPricePerLb)
-        Me.GroupBox2.Controls.Add(Me.lblPricePerLb)
         Me.GroupBox2.Controls.Add(Me.txtSellByDate)
         Me.GroupBox2.Controls.Add(Me.lblSellByDate)
         Me.GroupBox2.Controls.Add(Me.txtKillDate)
         Me.GroupBox2.Controls.Add(Me.lblKillDate)
-        Me.GroupBox2.Controls.Add(Me.txtDiscPerLb)
-        Me.GroupBox2.Controls.Add(Me.lblDiscPerLb)
         Me.GroupBox2.Controls.Add(Me.lblScaleType)
         Me.GroupBox2.Controls.Add(Me.txtProductCode)
         Me.GroupBox2.Controls.Add(Me.lblProductCode)
@@ -377,7 +369,7 @@ Partial Class Main
         'txtAlphaDesc
         '
         Me.txtAlphaDesc.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAlphaDesc.Location = New System.Drawing.Point(176, 495)
+        Me.txtAlphaDesc.Location = New System.Drawing.Point(176, 466)
         Me.txtAlphaDesc.Margin = New System.Windows.Forms.Padding(4)
         Me.txtAlphaDesc.Name = "txtAlphaDesc"
         Me.txtAlphaDesc.Size = New System.Drawing.Size(579, 27)
@@ -387,7 +379,7 @@ Partial Class Main
         '
         Me.lblAlphaDesc.AutoSize = True
         Me.lblAlphaDesc.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAlphaDesc.Location = New System.Drawing.Point(44, 498)
+        Me.lblAlphaDesc.Location = New System.Drawing.Point(44, 469)
         Me.lblAlphaDesc.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblAlphaDesc.Name = "lblAlphaDesc"
         Me.lblAlphaDesc.Size = New System.Drawing.Size(124, 19)
@@ -397,7 +389,7 @@ Partial Class Main
         'txtTestingDesc
         '
         Me.txtTestingDesc.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTestingDesc.Location = New System.Drawing.Point(176, 533)
+        Me.txtTestingDesc.Location = New System.Drawing.Point(176, 504)
         Me.txtTestingDesc.Margin = New System.Windows.Forms.Padding(4)
         Me.txtTestingDesc.Name = "txtTestingDesc"
         Me.txtTestingDesc.Size = New System.Drawing.Size(579, 27)
@@ -407,7 +399,7 @@ Partial Class Main
         '
         Me.lblTestingDesc.AutoSize = True
         Me.lblTestingDesc.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTestingDesc.Location = New System.Drawing.Point(34, 536)
+        Me.lblTestingDesc.Location = New System.Drawing.Point(34, 507)
         Me.lblTestingDesc.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTestingDesc.Name = "lblTestingDesc"
         Me.lblTestingDesc.Size = New System.Drawing.Size(134, 19)
@@ -417,7 +409,7 @@ Partial Class Main
         'txtLabel
         '
         Me.txtLabel.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLabel.Location = New System.Drawing.Point(176, 457)
+        Me.txtLabel.Location = New System.Drawing.Point(176, 428)
         Me.txtLabel.Margin = New System.Windows.Forms.Padding(4)
         Me.txtLabel.Name = "txtLabel"
         Me.txtLabel.Size = New System.Drawing.Size(579, 27)
@@ -427,37 +419,17 @@ Partial Class Main
         '
         Me.lblLabel.AutoSize = True
         Me.lblLabel.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLabel.Location = New System.Drawing.Point(82, 460)
+        Me.lblLabel.Location = New System.Drawing.Point(82, 431)
         Me.lblLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblLabel.Name = "lblLabel"
         Me.lblLabel.Size = New System.Drawing.Size(86, 19)
         Me.lblLabel.TabIndex = 57
         Me.lblLabel.Text = "Label Name"
         '
-        'txtPricePerLb
-        '
-        Me.txtPricePerLb.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPricePerLb.Location = New System.Drawing.Point(175, 381)
-        Me.txtPricePerLb.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtPricePerLb.Name = "txtPricePerLb"
-        Me.txtPricePerLb.Size = New System.Drawing.Size(203, 27)
-        Me.txtPricePerLb.TabIndex = 54
-        '
-        'lblPricePerLb
-        '
-        Me.lblPricePerLb.AutoSize = True
-        Me.lblPricePerLb.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPricePerLb.Location = New System.Drawing.Point(83, 384)
-        Me.lblPricePerLb.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblPricePerLb.Name = "lblPricePerLb"
-        Me.lblPricePerLb.Size = New System.Drawing.Size(85, 19)
-        Me.lblPricePerLb.TabIndex = 55
-        Me.lblPricePerLb.Text = "Price Per Lb"
-        '
         'txtSellByDate
         '
         Me.txtSellByDate.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSellByDate.Location = New System.Drawing.Point(175, 419)
+        Me.txtSellByDate.Location = New System.Drawing.Point(175, 390)
         Me.txtSellByDate.Margin = New System.Windows.Forms.Padding(4)
         Me.txtSellByDate.Name = "txtSellByDate"
         Me.txtSellByDate.Size = New System.Drawing.Size(203, 27)
@@ -467,7 +439,7 @@ Partial Class Main
         '
         Me.lblSellByDate.AutoSize = True
         Me.lblSellByDate.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSellByDate.Location = New System.Drawing.Point(81, 422)
+        Me.lblSellByDate.Location = New System.Drawing.Point(81, 393)
         Me.lblSellByDate.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblSellByDate.Name = "lblSellByDate"
         Me.lblSellByDate.Size = New System.Drawing.Size(88, 19)
@@ -477,7 +449,7 @@ Partial Class Main
         'txtKillDate
         '
         Me.txtKillDate.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtKillDate.Location = New System.Drawing.Point(552, 419)
+        Me.txtKillDate.Location = New System.Drawing.Point(552, 390)
         Me.txtKillDate.Margin = New System.Windows.Forms.Padding(4)
         Me.txtKillDate.Name = "txtKillDate"
         Me.txtKillDate.Size = New System.Drawing.Size(203, 27)
@@ -487,32 +459,12 @@ Partial Class Main
         '
         Me.lblKillDate.AutoSize = True
         Me.lblKillDate.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblKillDate.Location = New System.Drawing.Point(481, 422)
+        Me.lblKillDate.Location = New System.Drawing.Point(481, 393)
         Me.lblKillDate.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblKillDate.Name = "lblKillDate"
         Me.lblKillDate.Size = New System.Drawing.Size(64, 19)
         Me.lblKillDate.TabIndex = 51
         Me.lblKillDate.Text = "Kill Date"
-        '
-        'txtDiscPerLb
-        '
-        Me.txtDiscPerLb.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDiscPerLb.Location = New System.Drawing.Point(552, 381)
-        Me.txtDiscPerLb.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtDiscPerLb.Name = "txtDiscPerLb"
-        Me.txtDiscPerLb.Size = New System.Drawing.Size(203, 27)
-        Me.txtDiscPerLb.TabIndex = 48
-        '
-        'lblDiscPerLb
-        '
-        Me.lblDiscPerLb.AutoSize = True
-        Me.lblDiscPerLb.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDiscPerLb.Location = New System.Drawing.Point(464, 384)
-        Me.lblDiscPerLb.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblDiscPerLb.Name = "lblDiscPerLb"
-        Me.lblDiscPerLb.Size = New System.Drawing.Size(81, 19)
-        Me.lblDiscPerLb.TabIndex = 49
-        Me.lblDiscPerLb.Text = "Disc Per Lb"
         '
         'lblScaleType
         '
@@ -841,14 +793,10 @@ Partial Class Main
     Friend WithEvents lblTestingDesc As Label
     Friend WithEvents txtLabel As TextBox
     Friend WithEvents lblLabel As Label
-    Friend WithEvents txtPricePerLb As TextBox
-    Friend WithEvents lblPricePerLb As Label
     Friend WithEvents txtSellByDate As TextBox
     Friend WithEvents lblSellByDate As Label
     Friend WithEvents txtKillDate As TextBox
     Friend WithEvents lblKillDate As Label
-    Friend WithEvents txtDiscPerLb As TextBox
-    Friend WithEvents lblDiscPerLb As Label
     Friend WithEvents lblScaleType As Label
     Friend WithEvents txtProductCode As TextBox
     Friend WithEvents lblProductCode As Label
