@@ -124,8 +124,8 @@ Public Class Main
                 txtItemCountPerBox.Text = FixNull(rdr("ItemCountPerBox"))
                 txtItemTareEach.Text = FixNull(rdr("ItemTareEach"))
                 txtLot.Text = FixNull(rdr("Lot"))
-                txtProductType.Text = FixNull(rdr("ProductType"))
-                txtAlphaDesc.Text = FixNull(rdr("AlphaDesc"))
+                'txtProductType.Text = FixNull(rdr("ProductType"))
+                'txtAlphaDesc.Text = FixNull(rdr("AlphaDesc"))
                 txtTestingDesc.Text = FixNull(rdr("TestingDesc"))
                 txtLabel.Text = FixNull(rdr("Label"))
                 'txtPricePerLb.Text = FixNull(rdr("PricePerLb"))
@@ -152,7 +152,7 @@ Public Class Main
                 currentSelection.ItemTareEach = FixNull(rdr("ItemTareEach"))
                 currentSelection.Lot = FixNull(rdr("Lot"))
                 currentSelection.Type = FixNull(rdr("ProductType"))
-                currentSelection.AlphaDescription = FixNull(rdr("AlphaDesc"))
+                'currentSelection.AlphaDescription = FixNull(rdr("AlphaDesc"))
                 currentSelection.TestingDescription = FixNull(rdr("TestingDesc"))
                 currentSelection.LabelTemplate = FixNull(rdr("Label"))
                 currentSelection.SellByDays = FixNull(rdr("SellByDay"))
@@ -165,6 +165,8 @@ Public Class Main
         End If
         cmd.Dispose()
         oConn.Dispose()
+
+        SetDisplay()
 
     End Sub
 
@@ -189,13 +191,13 @@ Public Class Main
                 sSql = "UPDATE ProductInfo
                     SET    ScaleType = @ScaleType, ProductCode = @ProductCode, ProductDesc = @ProductDesc, ProductDesc2 = @ProductDesc2, SetWeight = @SetWeight, ProductGrade = @ProductGrade, 
                            ProductTare = @ProductTare, ProductTare2 = ProductTare2, KickoutCount = @KickoutCount, MinWeight = @MinWeight, MaxWeight = @MaxWeight, ItemCountPerBox = @ItemCountPerBox, 
-                           ItemTareEach = @ItemTareEach, Lot = @Lot, ProductType = @ProductType, AlphaDesc = @AlphaDesc, TestingDesc = @TestingDesc, Label = @Label, SellByDay = @SellByDay, KillDate = @KillDate, NormalWeight = @NormalWeight, DateEntered = @DateEntered
+                           ItemTareEach = @ItemTareEach, Lot = @Lot, ProductType = @ProductType, TestingDesc = @TestingDesc, Label = @Label, SellByDay = @SellByDay, KillDate = @KillDate, NormalWeight = @NormalWeight, DateEntered = @DateEntered
                     WHERE UUID = @UUID"
             Else
                 sSql = "INSERT INTO ProductInfo (ScaleType, ProductCode, ProductDesc, ProductDesc2, SetWeight, ProductGrade, ProductTare, ProductTare2, KickoutCount, MinWeight, MaxWeight, 
-                            ItemCountPerBox, ItemTareEach, Lot, ProductType, AlphaDesc, TestingDesc, Label, SellByDay, KillDate, NormalWeight, DateEntered)
+                            ItemCountPerBox, ItemTareEach, Lot, ProductType, TestingDesc, Label, SellByDay, KillDate, NormalWeight, DateEntered)
                         VALUES (@ScaleType, @ProductCode, @ProductDesc, @ProductDesc2, @SetWeight, @ProductGrade, @ProductTare, @ProductTare2, @KickoutCount, @MinWeight, @MaxWeight, 
-                            @ItemCountPerBox, @ItemTareEach, @Lot, @ProductType, @AlphaDesc, @TestingDesc, @Label, @SellByDay, @KillDate, @NormalWeight, @DateEntered)"
+                            @ItemCountPerBox, @ItemTareEach, @Lot, @ProductType, @TestingDesc, @Label, @SellByDay, @KillDate, @NormalWeight, @DateEntered)"
             End If
 
 
@@ -209,7 +211,7 @@ Public Class Main
 
             cmd.Parameters.AddWithValue("@ScaleType", cmbScaleType.Text)
             cmd.Parameters.AddWithValue("@ProductCode", txtProductCode.Text)
-            cmd.Parameters.AddWithValue("@ProductType", txtProductType.Text)
+            cmd.Parameters.AddWithValue("@ProductType", "")
             cmd.Parameters.AddWithValue("@ProductDesc", FixNullString(txtProductDesc.Text))
             cmd.Parameters.AddWithValue("@ProductDesc2", FixNullString(txtProductDesc2.Text))
             cmd.Parameters.AddWithValue("@SetWeight", FixNullDecimal(txtSetWeight.Text))
@@ -222,7 +224,7 @@ Public Class Main
             cmd.Parameters.AddWithValue("@ItemCountPerBox", FixNullInteger(txtItemCountPerBox.Text))
             cmd.Parameters.AddWithValue("@ItemTareEach", FixNullDecimal(txtItemTareEach.Text))
             cmd.Parameters.AddWithValue("@Lot", FixNullString(txtLot.Text))
-            cmd.Parameters.AddWithValue("@AlphaDesc", FixNullString(txtAlphaDesc.Text))
+            'cmd.Parameters.AddWithValue("@AlphaDesc", "")
             cmd.Parameters.AddWithValue("@TestingDesc", FixNullString(txtTestingDesc.Text))
             cmd.Parameters.AddWithValue("@Label", FixNullString(txtLabel.Text))
             'cmd.Parameters.AddWithValue("@PricePerLb", FixNullDecimal(txtPricePerLb.Text))
@@ -319,8 +321,8 @@ Public Class Main
         txtItemCountPerBox.Text = ""
         txtItemTareEach.Text = ""
         txtLot.Text = ""
-        txtProductType.Text = ""
-        txtAlphaDesc.Text = ""
+        'txtProductType.Text = ""
+        'txtAlphaDesc.Text = ""
         txtTestingDesc.Text = ""
         txtLabel.Text = ""
         'txtPricePerLb.Text = ""
@@ -336,9 +338,9 @@ Public Class Main
 
             Dim sSql As String
             sSql = "INSERT INTO ProductInfoChangeHistory (UserName, UserChangeType, UserChangeDate, UUID, ScaleType, ProductCode, ProductDesc, ProductDesc2, SetWeight, ProductGrade, ProductTare, ProductTare2, KickoutCount, MinWeight, MaxWeight, 
-                            ItemCountPerBox, ItemTareEach, Lot, ProductType, AlphaDesc, TestingDesc, Label, SellByDay, KillDate, NormalWeight, DateEntered)
+                            ItemCountPerBox, ItemTareEach, Lot, ProductType, TestingDesc, Label, SellByDay, KillDate, NormalWeight, DateEntered)
                         VALUES (@UserName, @UserChangeType, @UserChangeDate, @UUID, @ScaleType, @ProductCode, @ProductDesc, @ProductDesc2, @SetWeight, @ProductGrade, @ProductTare, @ProductTare2, @KickoutCount, @MinWeight, @MaxWeight, 
-                            @ItemCountPerBox, @ItemTareEach, @Lot, @ProductType, @AlphaDesc, @TestingDesc, @Label, @SellByDay, @KillDate, @NormalWeight, @DateEntered)"
+                            @ItemCountPerBox, @ItemTareEach, @Lot, @ProductType, @TestingDesc, @Label, @SellByDay, @KillDate, @NormalWeight, @DateEntered)"
 
 
             Dim oConn As New SqlConnection
@@ -368,7 +370,7 @@ Public Class Main
             cmd.Parameters.AddWithValue("@ItemCountPerBox", currentSelection.ItemCountPerBox)
             cmd.Parameters.AddWithValue("@ItemTareEach", currentSelection.ItemTareEach)
             cmd.Parameters.AddWithValue("@Lot", currentSelection.Lot)
-            cmd.Parameters.AddWithValue("@AlphaDesc", currentSelection.AlphaDescription)
+            'cmd.Parameters.AddWithValue("@AlphaDesc", currentSelection.AlphaDescription)
             cmd.Parameters.AddWithValue("@TestingDesc", currentSelection.TestingDescription)
             cmd.Parameters.AddWithValue("@Label", currentSelection.LabelTemplate)
             cmd.Parameters.AddWithValue("@SellByDay", currentSelection.SellByDays)
@@ -388,7 +390,45 @@ Public Class Main
 
     End Sub
 
+    Private Sub SetDisplay()
 
+        txtTestingDesc.Enabled = True
+        txtProductDesc2.Enabled = True
+        txtLabel.Enabled = True
+
+        Select Case cmbScaleType.Text
+            Case "COMBO"
+                txtLabel.Enabled = False
+
+            Case "OFFAL"
+                txtTestingDesc.Enabled = False
+                txtProductDesc2.Enabled = False
+                txtLabel.Enabled = False
+
+            Case "PATTY"
+                txtProductDesc2.Enabled = False
+                txtLabel.Enabled = False
+
+            Case "STEAK"
+                txtProductDesc2.Enabled = False
+                txtLabel.Enabled = False
+
+            Case "TONGUES"
+                txtTestingDesc.Enabled = False
+                txtProductDesc2.Enabled = False
+                txtLabel.Enabled = False
+
+            Case "TRIM"
+                txtTestingDesc.Enabled = False
+                txtLabel.Enabled = False
+
+            Case "CHUB"
+
+            Case Else
+                'DO NOTHING
+        End Select
+
+    End Sub
 
 
 
